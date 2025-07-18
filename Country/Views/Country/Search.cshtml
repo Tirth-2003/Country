@@ -1,0 +1,53 @@
+﻿@model CountryApp.Models.Country
+@{
+    ViewData["title"] = "search";
+}
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Search Country Data
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                   <form   asp-action="search">
+                       <div class="row">
+                            <div class="col">
+                            <label asp-for="CountryId">CountryId</label>
+                            <input asp-for="CountryId" class="form-control" />
+                            <span asp-validation-for="CountryId" class="text-danger"></span>
+                            </div>
+                        <div class="col">
+                            <label asp-for="CountryCode">CountryCode</label>
+                            <select asp-for="CountryCode" class="form-control" asp-items="ViewBag.CountryCode">
+                                <option value="">-- Select CountryCode --</option>
+                            </select>
+                            <span asp-validation-for="CountryCode" class="text-danger"></span>
+                        </div>
+                        <div class="col">
+                            <label asp-for="CountryName">CountryName</label>
+                            <input asp-for="CountryName" class="form-control" />
+                            <span asp-validation-for="CountryName" class="text-danger"></span>
+                        </div>
+                        <div class="col">yf</div>
+                        <div class="col">ihuiu</div>
+                                                    <div class="col">gui</div>
+                        <div class="col">uihiu</div>
+                       </div>
+                       <div class="row">
+                        <div class="col">id</div>
+                        <div class="col">name</div>
+                        <div class="col">code</div>
+                        <div class="col">yf</div>
+                        <div class="col">ihuiu</div>
+                        <div class="col">gui</div>
+                        <div class="col">uihiu</div>
+                       </div>
+                   </form>                
+            </div>
+        </div>
+    </div>
+    
+</div>
+

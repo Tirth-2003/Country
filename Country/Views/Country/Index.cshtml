@@ -1,0 +1,157 @@
+﻿@model IEnumerable<CountryApp.Models.Country>
+@{
+    ViewData["Title"] = "Country";
+  
+}
+
+<h2 class="text-center font-monospace">Country</h2>
+
+
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Search Country Data
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <form asp-controller="Country" asp-action="Index" class="mt-3">
+                    <div class="row">
+                        <div class="col mt-3">
+                            <label for="CountryId">CountryId</label>
+                            <input type="text" name="countryCode" value="@TempData["Code"]" placeholder="Country Code" />
+                        </div>
+                        <div class="col mt-3">
+                            <label for="CountryCode">CountryCode</label>
+                            <input type="text" name="countryName" value="@TempData["name"]" placeholder="Country Name" /> 
+                        
+                         </div>
+                        <div class="col mt-3">
+                            <label  for="CountryName">CountryName</label>
+                            <input type="text" name="countryName" value="@TempData["name"]" placeholder="Country Name" /> 
+                            
+                        </div>
+                        <div class="col mt-3">
+                            <label for="CountryName">ShortCode</label>
+                            <input type="text" name="countryName" value="@TempData["name"]" placeholder="Country Name" />
+                        </div>
+                        <div class="col mt-3">
+                            <label for="CountryId">CurrencyCode</label>
+                            <input type="text" name="countryCode" value="@TempData["Code"]" placeholder="Country Code" />
+                        </div>
+                    
+                        <div class="col mt-3">
+                        <label for="CountryId">CurrencyName</label>
+                        
+                            <input type="text" name="countryName" value="@TempData["name"]" placeholder="Country Name" />
+
+                        </div>
+                        <div class="col mt-3">
+                        <label for="CountryId">CurrencySymbol</label>
+                            <select name="currencySymbols" multiple="multiple" class="form-control select2">
+                                @foreach (var item in ViewBag.CurrencySymbols as List<string>)
+                                {
+                                    <option value="@item">@item</option>
+                                }
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mt-3">
+                    <label for="CountryId">CurrencyId</label>
+                    <input type="text" name="countryCode" value="@TempData["Code"]" placeholder="Country Code" />
+                        </div>
+                        <div class="col mt-3">
+                    <label for="CountryId">CountryShortCode</label>
+                    <input type="text" name="countryCode" value="@TempData["Code"]" placeholder="Country Code" />
+                        </div>
+                        <div class="col mt-3">
+                    <label for="CountryId">CountryAlpha3Code</label>
+                    <input type="text" name="countryCode" value="@TempData["Code"]" placeholder="Country Code" />
+                        </div>
+                        <div class="col mt-3"> 
+                            <label for="CountryId">RiskScore</label>
+                    <input type="text" name="countryCode" value="@TempData["Code"]" placeholder="Country Code" />
+                        </div>
+                        <div class="col mt-3">
+                    <label for="CountryId">IBANexist</label>
+                    <input type="text" name="countryCode" value="@TempData["Code"]" placeholder="Country Code" />
+                        </div>
+                        <div class="col mt-3">
+                    <label for="CountryId">IBANlength</label>
+                    <input type="text" name="countryCode" value="@TempData["Code"]" placeholder="Country Code" />
+                        </div>
+                        <div class="col mt-3">
+                    <label for="CountryId">DisplayNumber</label>
+                    <input type="text" name="countryCode" value="@TempData["Code"]" placeholder="Country Code" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div> 
+
+<div class="table-responsive">
+<table class="table table-striped" >
+  <thead class="table-dark">    
+       <tr>
+            <th>CountryID</th>
+            <th>CountryCode</th>
+            <th>CountryName</th>
+            <th>ShortCode</th>
+            <th>CurrencyCode</th>
+            <th>CurrencyName</th>
+            <th>CurrencySymbol</th>
+             <th>CurrencyId</th>
+            <th>CountryShortCode</th>
+            <th>CountryAlpha3Code</th>
+            <th>RiskScore</th>
+            <th>IBANexist</th>
+            <th>IBANlength</th>
+            <th>DisplayNumber</th>
+               
+       </tr>
+    </thead>
+    <tbody class="text-center">
+       
+            @foreach (var item in Model)
+            {
+             <tr>
+                <td>@item.CountryId</td>
+                <td>@item.CountryCode</td>
+                <td>@item.CountryName</td>
+                <td>@item.ShortCode</td>
+                <td>@item.CurrencyCode</td>
+                <td>@item.CurrencyName</td>
+                <td>@item.CurrencySymbol</td>
+                 <td>@item.CurrencyId</td>
+                <td>@item.CountryShortCode</td>
+                 <td>@item.CountryAlpha3Code</td>
+                <td>@item.RiskScore</td>
+                <td>@item.Ibanexist</td>
+                <td>@(item.Ibanlength > 0 ? item.Ibanlength : 0 )</td>
+                <td>@item.DisplayNumber</td>
+            </tr>
+            }
+   
+    </tbody>
+</table>
+</div>
+
+@section Scripts {
+     <script>
+            $(document).ready(function () {
+            $('.select2').select2({
+                placeholder: "Select options",
+                allowClear: true
+            });
+        });
+    </script> 
+    @* @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    } *@
+}
