@@ -17,121 +17,6 @@ namespace CountryApp.Controllers
         {
             _context = context;
         }
-        //public IActionResult Index(
-        //    int? CountryId,
-        //    string? countryCode,
-        //    string? countryName,
-        //    string? shortCode,
-        //    string? currencyCode,
-        //    string? currencyName,
-        //    //string[] currencySymbol,
-        //    string? currencySymbol,
-        //    int? currencyId,
-        //    string? countryShortCode,
-        //    string? countryAlpha3Code,
-        //    decimal? riskScore,
-        //    bool? ibanExist,
-        //    int? ibanLength,
-        //    //int? ibanLengthMax,
-        //    string? displayNumber,
-        //    //int[] dropId, 
-        //    string[] DropCode
-
-
-        //    )
-        //{
-        //   //TempData["dropId"] = string.Join(",", dropId ?? new int[] { }) ;
-        //    TempData["CountryId"] = CountryId;
-
-        //    TempData["Code"] = currencyCode;
-        //    TempData["name"] = countryName;
-        //    TempData["shortCode"] = shortCode;
-        //    TempData["currencyCode"] = currencyCode;
-        //    TempData["currencyName"] = currencyName;
-        //    //TempData["currencySymbol"] = string.Join(",", currencySymbol ?? new string[] { });
-        //    TempData["currencySymbol"] = currencySymbol;
-        //    TempData["currencyId"] = currencyId;
-        //    TempData["countryShortCode"] = countryShortCode;
-        //    TempData["countryAlpha3Code"] = countryAlpha3Code;
-        //    TempData["riskScore"] = riskScore;
-        //    TempData["ibanExist"] = ibanExist;
-        //    TempData["ibanLength"] = ibanLength;
-        //    //TempData["ibanLengthMax"] = ibanLengthMax;
-        //    TempData["displayNumber"] = displayNumber;
-
-        //    // multi select dropdown
-        //    TempData["CountryCode"] = string.Join(",", DropCode ?? new string[] { });
-
-
-        //    var Data = _context.Countries.AsQueryable();
-
-        //    if (CountryId != null)
-        //    {
-        //        Data = Data.Where(r => r.CountryId == CountryId);
-        //    }
-
-        //    if (!string.IsNullOrEmpty(countryCode))
-        //    {
-        //        Data = Data.Where(r => r.CountryCode.Contains(countryCode));
-        //    }
-        //    if (!string.IsNullOrEmpty(countryName))
-        //    {
-        //        Data = Data.Where(r => r.CountryName.Contains(countryName));
-        //    }
-        //    if (!string.IsNullOrEmpty(shortCode))
-        //    {
-        //        Data = Data.Where(r => r.ShortCode.Contains(shortCode));
-        //    }
-        //    if (!string.IsNullOrEmpty(currencyCode))
-        //    {
-        //        Data = Data.Where(r => r.CurrencyCode.Contains(currencyCode));
-        //    }
-        //    if (!string.IsNullOrEmpty(currencyName))
-        //    {
-        //        Data = Data.Where(r => r.CurrencyName.Contains(currencyName));
-        //    }
-        //    //if (currencySymbol?.Length > 0)
-        //    //{
-        //    //    Data = Data.Where(r => currencySymbol.Contains(r.CurrencySymbol));
-        //    //}
-        //    if (!string.IsNullOrEmpty(currencySymbol))
-        //    {
-        //        Data = Data.Where(r => r.CurrencySymbol.Contains(currencySymbol));
-        //    }
-
-        //    if (currencyId != null)
-        //    {
-        //        Data = Data.Where(r => r.CurrencyId == currencyId);
-        //    }
-        //    if (!string.IsNullOrEmpty(countryShortCode))
-        //    {
-        //        Data = Data.Where(r => r.CountryShortCode.Contains(countryShortCode));
-        //    }
-        //    if (!string.IsNullOrEmpty(countryAlpha3Code))
-        //    {
-        //        Data = Data.Where(r => r.CountryAlpha3Code.Contains(countryAlpha3Code));
-        //    }
-        //    if (riskScore != null)
-        //    {
-        //        Data = Data.Where(r => r.RiskScore ==  riskScore);
-        //    }
-
-        //    if (ibanLength != null)
-        //    {
-        //        Data = Data.Where(r => r.Ibanlength == ibanLength);
-        //    }
-
-        //    if (!string.IsNullOrEmpty(displayNumber))
-        //    {
-        //        Data = Data.Where(r => r.DisplayNumber.Contains(displayNumber));
-        //    }
-
-
-
-
-        //    //MultiSelect(Data);
-        //    return View(Data.ToList());
-        //}
 
         public IActionResult Index(
      List<string>? SelectedCountryNames,
@@ -141,10 +26,28 @@ namespace CountryApp.Controllers
         List<string>? SelectedCurrencyNames,
         List<string>? SelectedCountryCodes,
         List<string>? SelectedAlpha3Codes,
+        List<string>? SelectedShortCodes,
+        List<string>? SelectedDisplayNumbers,
+        List<string>? SelectedRiskScores,
+        List<bool>? SelectedIbanExists,
+        List<string>? SelectedIbanLengths,
+        List<string>? SelectedCountryShortCodes,
+        List<int>? SelectedCurrencyId,
+
         int? CountryIdSearch,
      string? CountryNameSearch,
      string? CurrencyCodeSearch,
-     string? CurrencySymbolSearch
+     string? CurrencySymbolSearch,
+        string? CountryCodeSearch,
+        string? CountryAlpha3CodeSearch,
+        string? CurrencyNameSearch,
+        string? ShortCodeSearch,
+        string? DisplayNumberSearch,
+        decimal? RiskScoreSearch,
+        bool? IbanExistsSearch,
+        string? IbanLengthSearch,
+        string? CountryShortCodeSearch,
+        int? CurrencyIdSearch
 
 
             )
@@ -159,13 +62,36 @@ namespace CountryApp.Controllers
                 SelectedCurrencyCodes = SelectedCurrencyCodes ?? new(),
                 SelectedCurrencySymbols = SelectedCurrencySymbols ?? new(),
                 SelectedCountryId = SelectedCountryId ?? new(),
-                CountryIdSearch = CountryIdSearch ?? 0, // Default value, can be changed based on your needs
-                CountryNameSearch = CountryNameSearch,
-                CurrencyCodeSearch = CurrencyCodeSearch,
-                CurrencySymbolSearch = CurrencySymbolSearch,
                 SelectedCurrencyNames = SelectedCurrencyNames ?? new(),
                 SelectedCountryCodes = SelectedCountryCodes ?? new(),
                 SelectedAlpha3Codes = SelectedAlpha3Codes ?? new(),
+                SelectedShortCodes = SelectedShortCodes ?? new(),
+                SelectedDisplayNumbers = SelectedDisplayNumbers ?? new(),
+                SelectedRiskScores = SelectedRiskScores ?? new(),
+                SelectedIbanExists = SelectedIbanExists ?? new(),
+                SelectedIbanLengths = SelectedIbanLengths ?? new(),
+                SelectedCountryShortCodes = SelectedCountryShortCodes ?? new(),
+                SelectedCurrencyId = SelectedCurrencyId ?? new(),
+
+                CountryIdSearch = CountryIdSearch ?? 0,
+                CountryCodeSearch = CountryCodeSearch,
+                CountryNameSearch = CountryNameSearch,
+                ShortCodeSearch = ShortCodeSearch,
+
+                CurrencyCodeSearch = CurrencyCodeSearch,
+                CurrencyNameSearch = CurrencyNameSearch,
+                CurrencySymbolSearch = CurrencySymbolSearch,
+
+                CurrencyIdSearch = CurrencyIdSearch ?? 0,    
+                CountryAlpha3CodeSearch = CountryAlpha3CodeSearch,
+                CountryShortCodeSearch = CountryShortCodeSearch,
+                
+                DisplayNumberSearch = DisplayNumberSearch,
+                RiskScoreSearch = RiskScoreSearch,
+
+                IbanExistsSearch = IbanExistsSearch,
+                IbanLengthSearch = IbanLengthSearch,
+                
 
                 CountryIdList = allCountries.Select(c => c.CountryId).Distinct()
                     .Select(id => new SelectListItem
@@ -183,6 +109,22 @@ namespace CountryApp.Controllers
                         Selected = SelectedCountryNames?.Contains(name) == true
                     }).ToList(),
 
+                CountryCodeList = allCountries.Select(c => c.CountryCode).Distinct()
+                    .Select(code => new SelectListItem
+                    {
+                        Text = code,
+                        Value = code,
+                        Selected = SelectedCountryCodes?.Contains(code) == true
+                    }).ToList(),
+
+                ShortCodeList = allCountries.Select(c => c.ShortCode).Distinct()
+                    .Select(shortCode => new SelectListItem
+                    {
+                        Text = shortCode,
+                        Value = shortCode,
+                        Selected = SelectedShortCodes?.Contains(shortCode) == true
+                    }).ToList(),
+
                 CurrencyCodeList = allCountries.Select(c => c.CurrencyCode).Distinct()
                     .Select(code => new SelectListItem
                     {
@@ -191,11 +133,13 @@ namespace CountryApp.Controllers
                         Selected = SelectedCurrencyCodes?.Contains(code) == true
                     }).ToList(),
 
-                CurrencyNameList = allCountries.Select(c => new SelectListItem
-                {
-                    Value = c.CurrencyName,
-                    Text = c.CurrencyName
-                }).Distinct().ToList(),
+                CurrencyNameList = allCountries.Select(c => c.CurrencyName).Distinct()
+                    .Select(name => new SelectListItem
+                    {
+                        Text = name,
+                        Value = name,
+                        Selected = SelectedCurrencyNames?.Contains(name) == true
+                    }).ToList(),
 
                 CurrencySymbolList = allCountries.Select(c => c.CurrencySymbol).Distinct()
                     .Select(symbol => new SelectListItem
@@ -205,23 +149,74 @@ namespace CountryApp.Controllers
                         Selected = SelectedCurrencySymbols?.Contains(symbol) == true
                     }).ToList(),
 
-                CountryCodeList = allCountries.Select(c => new SelectListItem
-                {
-                    Value = c.CountryCode,
-                    Text = c.CountryCode
-                }).Distinct().ToList(),
+                CurrencyIdList = allCountries.Select(c => c.CurrencyId).Distinct()
+                    .Select(id => new SelectListItem
+                    {
+                        Text = id.ToString(),
+                        Value = id.ToString(),
+                        Selected = SelectedCurrencyId.Contains((int)id) == true
+                    }).ToList(),
+
+
+                CountryShortCodeList = allCountries.Select(c => c.CountryShortCode).Distinct()
+                    .Select(shortCode => new SelectListItem
+                    {
+                        Text = shortCode,
+                        Value = shortCode,
+                        Selected = SelectedCountryShortCodes?.Contains(shortCode) == true
+                    }).ToList(),
 
                 CountryAlpha3CodeList = allCountries.Select(c => new SelectListItem
                 {
                     Value = c.CountryAlpha3Code,
                     Text = c.CountryAlpha3Code
-                }).Distinct().ToList()
+                }).Distinct().ToList(),
+
+                RiskScoreList = allCountries.Select(c => c.RiskScore?.ToString() ?? string.Empty).Distinct()
+                    .Select(riskScore => new SelectListItem
+                    {
+                        Text = riskScore,
+                        Value = riskScore,
+                        Selected = SelectedRiskScores?.Contains(riskScore) == true
+                    }).ToList(),
+
+                 //IbanExistsList = allCountries.Select(c => c.Ibanexist.HasValue ? c.Ibanexist.Value.ToString() : string.Empty).Distinct()
+                 //   .Select(ibanExists => new SelectListItem
+                 //   {
+                 //       Text = ibanExists,
+                 //       Value = ibanExists,
+                 //       Selected = SelectedIbanExists?.Contains(bool.Parse(ibanExists)) == true
+                 //   }).ToList(),
+
+                IbanLengthList = allCountries.Select(c => c.Ibanlength.HasValue ? c.Ibanlength.Value.ToString() : string.Empty).Distinct()
+                    .Select(ibanLength => new SelectListItem
+                    {
+                        Text = ibanLength,
+                        Value = ibanLength,
+                        Selected = SelectedIbanLengths?.Contains(ibanLength) == true
+                    }).ToList(),
+
+                DisplayNumberList = allCountries.Select(c => c.DisplayNumber).Distinct()
+                    .Select(displayNumber => new SelectListItem
+                    {
+                        Text = displayNumber,
+                        Value = displayNumber,
+                        Selected = SelectedDisplayNumbers?.Contains(displayNumber) == true
+                    }).ToList(),
+
+                
+               
+
+                
+
+
             };
 
 
             // Filter by multi-select
             if (SelectedCountryId?.Any() == true)
                 model.Countries = model.Countries.Where(c => SelectedCountryId.Contains(c.CountryId)).ToList();
+            
             if (SelectedCountryNames?.Any() == true)
                 model.Countries = model.Countries.Where(c => SelectedCountryNames.Contains(c.CountryName)).ToList();
 
@@ -239,6 +234,24 @@ namespace CountryApp.Controllers
 
             if (model.SelectedAlpha3Codes?.Any() == true)
                 model.Countries = model.Countries.Where(c => model.SelectedAlpha3Codes.Contains(c.CountryAlpha3Code)).ToList();
+
+            if (model.SelectedCurrencyId?.Any() == true)
+                model.Countries = model.Countries.Where(c => model.SelectedCurrencyId.Contains((int)c.CurrencyId)).ToList();
+
+            if (model.SelectedShortCodes?.Any() == true)
+                model.Countries = model.Countries.Where(c => model.SelectedShortCodes.Contains(c.ShortCode)).ToList();
+            if (model.SelectedDisplayNumbers?.Any() == true)
+                model.Countries = model.Countries.Where(c => model.SelectedDisplayNumbers.Contains(c.DisplayNumber)).ToList();
+            if (model.SelectedRiskScores?.Any() == true)
+                model.Countries = model.Countries.Where(c => model.SelectedRiskScores.Contains(c.RiskScore?.ToString() ?? string.Empty)).ToList();
+
+            if (model.SelectedIbanLengths?.Any() == true)
+                model.Countries = model.Countries.Where(c => model.SelectedIbanLengths.Contains(c.Ibanlength.HasValue ? c.Ibanlength.Value.ToString() : string.Empty)).ToList();
+            if (model.SelectedCountryShortCodes?.Any() == true)
+                model.Countries = model.Countries.Where(c => model.SelectedCountryShortCodes.Contains(c.CountryShortCode)).ToList();
+            if (model.SelectedCountryNames?.Any() == true)
+                model.Countries = model.Countries.Where(c => model.SelectedCountryNames.Contains(c.CountryName)).ToList();
+
             // Filter by text input (case-insensitive)
 
 
@@ -252,6 +265,28 @@ namespace CountryApp.Controllers
 
             if (!string.IsNullOrWhiteSpace(CurrencySymbolSearch))
                 model.Countries = model.Countries.Where(c => c.CurrencySymbol != null && c.CurrencySymbol.ToLower().Contains(CurrencySymbolSearch.ToLower())).ToList();
+
+            if (!string.IsNullOrWhiteSpace(CountryCodeSearch))
+                model.Countries = model.Countries.Where(c => c.CountryCode != null && c.CountryCode.ToLower().Contains(CountryCodeSearch.ToLower())).ToList();
+            if (!string.IsNullOrWhiteSpace(CountryAlpha3CodeSearch))
+                model.Countries = model.Countries.Where(c => c.CountryAlpha3Code != null && c.CountryAlpha3Code.ToLower().Contains(CountryAlpha3CodeSearch.ToLower())).ToList();
+            if (!string.IsNullOrWhiteSpace(CurrencyNameSearch))
+                model.Countries = model.Countries.Where(c => c.CurrencyName != null && c.CurrencyName.ToLower().Contains(CurrencyNameSearch.ToLower())).ToList();
+            if (!string.IsNullOrWhiteSpace(ShortCodeSearch))
+                model.Countries = model.Countries.Where(c => c.ShortCode != null && c.ShortCode.ToLower().Contains(ShortCodeSearch.ToLower())).ToList();
+            if (!string.IsNullOrWhiteSpace(DisplayNumberSearch))
+                model.Countries = model.Countries.Where(c => c.DisplayNumber != null && c.DisplayNumber.ToLower().Contains(DisplayNumberSearch.ToLower())).ToList();
+            if (RiskScoreSearch.HasValue)
+                model.Countries = model.Countries.Where(c => c.RiskScore.HasValue && c.RiskScore.Value == RiskScoreSearch.Value).ToList();
+            if (IbanExistsSearch.HasValue)
+                model.Countries = model.Countries.Where(c => c.Ibanexist.HasValue && c.Ibanexist.Value == IbanExistsSearch.Value).ToList();
+            if (!string.IsNullOrWhiteSpace(IbanLengthSearch))
+                model.Countries = model.Countries.Where(c => c.Ibanlength.HasValue && c.Ibanlength.Value.ToString() == IbanLengthSearch).ToList();
+            if (!string.IsNullOrWhiteSpace(CountryShortCodeSearch))
+                model.Countries = model.Countries.Where(c => c.CountryShortCode != null && c.CountryShortCode.ToLower().Contains(CountryShortCodeSearch.ToLower())).ToList();
+            if (CurrencyIdSearch.HasValue && CurrencyIdSearch.Value > 0)
+                model.Countries = model.Countries.Where(c => c.CurrencyId == CurrencyIdSearch.Value).ToList();
+
 
             return View(model);
         }

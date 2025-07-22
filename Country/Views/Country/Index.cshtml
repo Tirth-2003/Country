@@ -8,99 +8,6 @@
 <h2 class="text-center font-monospace">Country</h2>
 
 
-@* <div class="accordion accordion-flush" id="accordionFlushExample">
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingOne">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                Search Input
-            </button>
-        </h2>
-        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">
-                <form asp-action="Index" method="get">
-                    <div class="row">
-
-                        <div class="col-3">
-
-                            <label>Country ID</label>
-                            <select asp-for="SelectedCountryId" asp-items="Model.CountryIdList" class="form-control" multiple id="countryIds"></select>
-                            <input type="number" name="CountryIdSearch" value="@Model.CountryIdSearch" placeholder="Country ID" class="form-control" />
-                        </div>
-                        <div class="col-3">
-                            <label>Country Name (Multi-Select)</label>
-                            <select asp-for="SelectedCountryNames" asp-items="Model.CountryNameList" class="form-control" multiple id="countryNames"></select>
-                            <input type="text" class="form-control mt-1" name="CountryNameSearch" value="@Model.CountryNameSearch" placeholder="Type Country Name" />
-                        </div>
-
-                        <div class="col-3">
-                            <label>Currency Code (Multi-Select)</label>
-                            <select asp-for="SelectedCurrencyCodes" asp-items="Model.CurrencyCodeList" class="form-control" multiple id="currencyCodes"></select>
-                            <input type="text" class="form-control mt-1" name="CurrencyCodeSearch" value="@Model.CurrencyCodeSearch" placeholder="Type Currency Code" />
-                        </div>
-
-                        <div class="col-3">
-                            <label>Currency Symbol (Multi-Select)</label>
-                            <select asp-for="SelectedCurrencySymbols" asp-items="Model.CurrencySymbolList" class="form-control" multiple id="currencySymbols"></select>
-                            <input type="text" class="form-control mt-1" name="CurrencySymbolSearch" value="@Model.CurrencySymbolSearch" placeholder="Type Currency Symbol" />
-                        </div>
-                    </div>
-
-                    <div class="mt-3">
-                        <input type="submit" value="Search" class="btn btn-primary" />
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                Multiselect Dropdown Search
-            </button>
-        </h2>
-        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" >
-            <div class="accordion-body">
-                <form asp-action="Index" method="get">
-                    <div class="row">
-
-                        <div class="col-3">
-
-                            <label>Country ID</label>
-                            <select asp-for="SelectedCountryId" asp-items="Model.CountryIdList" class="form-control" multiple id="countryIds"></select>
-
-                            <input type="number" name="CountryIdSearch" value="@Model.CountryIdSearch" placeholder="Country ID" class="form-control" />
-                        </div>
-                        <div class="col-3">
-                            <label>Country Name (Multi-Select)</label>
-                            <select asp-for="SelectedCountryNames" asp-items="Model.CountryNameList" class="form-control" multiple id="countryNames"></select>
-                            <input type="text" class="form-control mt-1" name="CountryNameSearch" value="@Model.CountryNameSearch" placeholder="Type Country Name" />
-                        </div>
-
-                        <div class="col-3">
-                            <label>Currency Code (Multi-Select)</label>
-                            <select asp-for="SelectedCurrencyCodes" asp-items="Model.CurrencyCodeList" class="form-control" multiple id="currencyCodes"></select>
-                            <input type="text" class="form-control mt-1" name="CurrencyCodeSearch" value="@Model.CurrencyCodeSearch" placeholder="Type Currency Code" />
-                        </div>
-
-                        <div class="col-3">
-                            <label>Currency Symbol (Multi-Select)</label>
-                            <select asp-for="SelectedCurrencySymbols" asp-items="Model.CurrencySymbolList" class="form-control" multiple id="currencySymbols"></select>
-                            <input type="text" class="form-control mt-1" name="CurrencySymbolSearch" value="@Model.CurrencySymbolSearch" placeholder="Type Currency Symbol" />
-                        </div>
-
-                    </div>
-
-                    <div class="mt-3">
-                        <input type="submit" value="Search" class="btn btn-primary" />
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    
-</div> *@
-
  <form asp-action="Index" method="get">
         <div class="row">
 
@@ -108,108 +15,94 @@
                 
                 <label>Country ID</label>
                 <select asp-for="SelectedCountryId" asp-items="Model.CountryIdList" class="form-control" multiple id="countryIds"></select>
-
                 <input type="number" name="CountryIdSearch" value="@Model.CountryIdSearch" placeholder="Country ID" class="form-control" />
             </div>
+        <div class="col-3">
+            <label>Country Code</label>
+            <select asp-for="SelectedCountryCodes" asp-items="Model.CountryCodeList" class="form-control" multiple id="countryCodes"></select>
+            <input type="text" class="form-control mt-1" name="CountryCodeSearch" value="@Model.CountryCodeSearch" placeholder="Type Country Code" />
+        </div>
+
             <div class="col-3">
-                <label>Country Name (Multi-Select)</label>
+                <label>Country Name</label>
                 <select asp-for="SelectedCountryNames" asp-items="Model.CountryNameList" class="form-control" multiple id="countryNames"></select>
                 <input type="text" class="form-control mt-1" name="CountryNameSearch" value="@Model.CountryNameSearch" placeholder="Type Country Name" />
             </div>
-
+            
             <div class="col-3">
-                <label>Currency Code (Multi-Select)</label>
-                <select asp-for="SelectedCurrencyCodes" asp-items="Model.CurrencyCodeList" class="form-control" multiple id="currencyCodes"></select>
-                <input type="text" class="form-control mt-1" name="CurrencyCodeSearch" value="@Model.CurrencyCodeSearch" placeholder="Type Currency Code" />
+                <label> Short Code</label>
+            <select asp-for="SelectedShortCodes" asp-items="Model.ShortCodeList" class="form-control" multiple id="ShortCodes"></select>
+                <input type="text" class="form-control mt-1" name="ShortCodeSearch" value="@Model.ShortCodeSearch" placeholder="Type Country Short Code" />
+            </div>
+
+        <div class="col-3">
+            <label>Currency Code</label>
+            <select asp-for="SelectedCurrencyCodes" asp-items="Model.CurrencyCodeList" class="form-control" multiple id="currencyCodes"></select>
+            <input type="text" class="form-control mt-1" name="CurrencyCodeSearch" value="@Model.CurrencyCodeSearch" placeholder="Type Currency Code" />
+        </div>
+        <div class="col-3">
+            <label>Currency Name</label>
+            <select asp-for="SelectedCurrencyNames" asp-items="Model.CurrencyNameList" class="form-control" multiple id="currencyNames"></select>
+            <input type="text" class="form-control mt-1" name="CurrencyNameSearch" value="@Model.CurrencyNameSearch" placeholder="Type Currency Name" />
+        </div>
+
+        <div class="col-3">
+            <label>Currency Symbol </label>
+            <select asp-for="SelectedCurrencySymbols" asp-items="Model.CurrencySymbolList" class="form-control" multiple id="currencySymbols"></select>
+            <input type="text" class="form-control mt-1" name="CurrencySymbolSearch" value="@Model.CurrencySymbolSearch" placeholder="Type Currency Symbol" />
+        </div>
+        <div class="col-3">
+            <label>Currency ID</label>
+            <select asp-for="SelectedCurrencyId" asp-items="Model.CurrencyIdList" class="form-control" multiple id="currencyId"></select>
+            <input type="number" name="CurrencyIdSearch" value="@Model.CurrencyIdSearch" placeholder="Currency ID" class="form-control" />
+        </div>
+
+        <div class="col-3">
+            <label>Country Short Code</label>
+            <select asp-for="SelectedCountryShortCodes" asp-items="Model.CountryShortCodeList" class="form-control" multiple id="countryShortCodes"></select>
+            <input type="text" class="form-control mt-1" name="CountryShortCodeSearch" value="@Model.CountryShortCodeSearch" placeholder="Type Country Short Code" />
+        </div>
+        <div class="col-3">
+                <label>Country Alpha3 Code</label>
+                <select asp-for="SelectedAlpha3Codes" asp-items="Model.CountryAlpha3CodeList" class="form-control" multiple id="countryAlphacode"></select>
+                <input type="text" class="form-control mt-1" name="CountryAlpha3CodeSearch" value="@Model.CountryAlpha3CodeSearch" placeholder="Type Country Alpha3 Code" />
+            </div>
+            
+            
+            
+            
+            <div class="col-3">
+                <label>Risk Score</label>
+                <select asp-for="SelectedRiskScores" asp-items="Model.RiskScoreList" class="form-control" multiple id="riskscore"></select>
+                <input type="number" name="RiskScoreSearch" value="@Model.RiskScoreSearch" placeholder="Risk Score" class="form-control" />
             </div>
 
             <div class="col-3">
-                <label>Currency Symbol (Multi-Select)</label>
-                <select asp-for="SelectedCurrencySymbols" asp-items="Model.CurrencySymbolList" class="form-control" multiple id="currencySymbols"></select>
-                <input type="text" class="form-control mt-1" name="CurrencySymbolSearch" value="@Model.CurrencySymbolSearch" placeholder="Type Currency Symbol" />
+                <label>IBAN Exist</label>
+            <select name="IbanExistsSearch" class="form-control">
+                             <option value="">Select</option>
+                             <option value="True">True</option>
+                             <option value="False">False</option>
+                </select>
+          
+        </div>
+            <div class="col-3">
+                <label>IBAN Length</label>
+                <select asp-for="SelectedIbanLengths" asp-items="Model.IbanLengthList" class="form-control " multiple id="ibanlength"></select>
+                <input type="number" name="IbanLengthSearch" value="@Model.IbanLengthSearch" placeholder="IBAN Length" class="form-control" />
             </div>
+            <div class="col-3">
+                <label>Display Number</label>
+            <select asp-for="SelectedDisplayNumbers" asp-items="Model.DisplayNumberList" class="form-control multi-select" multiple id="displaynumber"></select>
+                <input type="text" class="form-control mt-1" name="DisplayNumberSearch" value="@Model.DisplayNumberSearch" placeholder="Type Display Number" />
+        </div>
+
         </div>
 
         <div class="mt-3">
             <input type="submit" value="Search" class="btn btn-primary" />
         </div>
     </form>
-
-@* <form asp-action="Index" method="get">
-    <div class="row">
-        <div class="col-md-4 mt-2">
-            <label>Country Name</label>
-            <select id="SelectedCountryNames" name="SelectedCountryNames" multiple class="form-control">
-                @foreach (var item in Model.CountryNameList)
-                {
-                    <option value="@item.Value" selected="@(Model.SelectedCountryNames?.Contains(item.Value) == true)">
-                        @item.Text
-                    </option>
-                }
-            </select>
-        </div>
-        <div class="col-md-4 mt-2">
-            <label>Currency Code</label>
-            <select id="SelectedCurrencyCodes" name="SelectedCurrencyCodes" multiple class="form-control">
-                @foreach (var item in Model.CurrencyCodeList)
-                {
-                    <option value="@item.Value" selected="@(Model.SelectedCurrencyCodes?.Contains(item.Value) == true)">
-                        @item.Text
-                    </option>
-                }
-            </select>
-        </div>
-        <div class="col-md-4 mt-2">
-            <label>Currency Name</label>
-            <select id="SelectedCurrencyNames" name="SelectedCurrencyNames" multiple class="form-control">
-                @foreach (var item in Model.CurrencyNameList)
-                {
-                    <option value="@item.Value" selected="@(Model.SelectedCurrencyNames?.Contains(item.Value) == true)">
-                        @item.Text
-                    </option>
-                }
-            </select>
-        </div>
-        <div class="col-md-4 mt-2">
-            <label>Currency Symbol</label>
-            <select id="SelectedCurrencySymbols" name="SelectedCurrencySymbols" multiple class="form-control">
-                @foreach (var item in Model.CurrencySymbolList)
-                {
-                    <option value="@item.Value" selected="@(Model.SelectedCurrencySymbols?.Contains(item.Value) == true)">
-                        @item.Text
-                    </option>
-                }
-            </select>
-        </div>
-        <div class="col-md-4 mt-2">
-            <label>Country Code</label>
-            <select id="SelectedCountryCodes" name="SelectedCountryCodes" multiple class="form-control">
-                @foreach (var item in Model.CountryCodeList)
-                {
-                    <option value="@item.Value" selected="@(Model.SelectedCountryCodes?.Contains(item.Value) == true)">
-                        @item.Text
-                    </option>
-                }
-            </select>
-        </div>
-        <div class="col-md-4 mt-2">
-            <label>Country Alpha3 Code</label>
-            <select id="SelectedAlpha3Codes" name="SelectedAlpha3Codes" multiple class="form-control">
-                @foreach (var item in Model.CountryAlpha3CodeList)
-                {
-                    <option value="@item.Value" selected="@(Model.SelectedAlpha3Codes?.Contains(item.Value) == true)">
-                        @item.Text
-                    </option>
-                }
-            </select>
-        </div>
-    </div>
-
-    <div class="mt-3">
-        <button type="submit" class="btn btn-primary">Search</button>
-    </div>
-</form> *@
-
 
 <div class="table-responsive">
 <table class="table table-striped">
@@ -260,13 +153,17 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         $(function () {
-            $('#countryNames, #currencyCodes, #currencySymbols, #countryIds').select2({
+            $('#countryNames, #currencyNames, #countryCodes, #currencyCodes, #riskscore, #countryShortCodes, #ShortCodes, #currencyId, #currencySymbols, #countryIds, #countryAlphacode, #ibanlength, #displaynumber').select2({
                 placeholder: "Select items",
                 width: '100%'
             });
         });
         
+        
+            
     </script>
+   
+   
 
    
 }
