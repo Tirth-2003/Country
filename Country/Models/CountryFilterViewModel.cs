@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 
 namespace CountryApp.Models
 {
@@ -6,7 +7,6 @@ namespace CountryApp.Models
     {
         public List<Country> Countries { get; set; }
 
-        // Selected values
         public List<string> SelectedCountryNames { get; set; }
         public List<string> SelectedCurrencyCodes { get; set; }
         public List<string> SelectedCurrencySymbols { get; set; }
@@ -31,6 +31,7 @@ namespace CountryApp.Models
         public string CurrencyNameSearch { get; set; }
         public string ShortCodeSearch { get; set; }
         public string DisplayNumberSearch { get; set; }
+        [Range(0, 100, ErrorMessage = "Risk score must be between 0 and 100.")]
         public decimal? RiskScoreSearch { get; set; }
         public bool? IbanExistsSearch { get; set; }
         public string IbanLengthSearch { get; set; }
