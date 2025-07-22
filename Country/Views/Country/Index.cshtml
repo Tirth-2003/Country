@@ -11,73 +11,71 @@
  <form asp-action="Index" method="get">
         <div class="row">
 
-            <div class="col-3">
-                
+            <div class="col">
                 <label>Country ID</label>
                 <select asp-for="SelectedCountryId" asp-items="Model.CountryIdList" class="form-control" multiple id="countryIds"></select>
                 <input type="number" name="CountryIdSearch" value="@Model.CountryIdSearch" placeholder="Country ID" class="form-control" />
             </div>
-        <div class="col-3">
+        <div class="col">
             <label>Country Code</label>
             <select asp-for="SelectedCountryCodes" asp-items="Model.CountryCodeList" class="form-control" multiple id="countryCodes"></select>
             <input type="text" class="form-control mt-1" name="CountryCodeSearch" value="@Model.CountryCodeSearch" placeholder="Type Country Code" />
         </div>
 
-            <div class="col-3">
+            <div class="col">
                 <label>Country Name</label>
                 <select asp-for="SelectedCountryNames" asp-items="Model.CountryNameList" class="form-control" multiple id="countryNames"></select>
                 <input type="text" class="form-control mt-1" name="CountryNameSearch" value="@Model.CountryNameSearch" placeholder="Type Country Name" />
             </div>
             
-            <div class="col-3">
+            <div class="col">
                 <label> Short Code</label>
             <select asp-for="SelectedShortCodes" asp-items="Model.ShortCodeList" class="form-control" multiple id="ShortCodes"></select>
                 <input type="text" class="form-control mt-1" name="ShortCodeSearch" value="@Model.ShortCodeSearch" placeholder="Type Country Short Code" />
             </div>
 
-        <div class="col-3">
+        <div class="col">
             <label>Currency Code</label>
             <select asp-for="SelectedCurrencyCodes" asp-items="Model.CurrencyCodeList" class="form-control" multiple id="currencyCodes"></select>
             <input type="text" class="form-control mt-1" name="CurrencyCodeSearch" value="@Model.CurrencyCodeSearch" placeholder="Type Currency Code" />
         </div>
-        <div class="col-3">
+        <div class="col">
             <label>Currency Name</label>
             <select asp-for="SelectedCurrencyNames" asp-items="Model.CurrencyNameList" class="form-control" multiple id="currencyNames"></select>
             <input type="text" class="form-control mt-1" name="CurrencyNameSearch" value="@Model.CurrencyNameSearch" placeholder="Type Currency Name" />
         </div>
 
-        <div class="col-3">
+        <div class="col">
             <label>Currency Symbol </label>
             <select asp-for="SelectedCurrencySymbols" asp-items="Model.CurrencySymbolList" class="form-control" multiple id="currencySymbols"></select>
             <input type="text" class="form-control mt-1" name="CurrencySymbolSearch" value="@Model.CurrencySymbolSearch" placeholder="Type Currency Symbol" />
         </div>
-        <div class="col-3">
+       </div>
+    <div class="row">
+        <div class="col">
             <label>Currency ID</label>
             <select asp-for="SelectedCurrencyId" asp-items="Model.CurrencyIdList" class="form-control" multiple id="currencyId"></select>
             <input type="number" name="CurrencyIdSearch" value="@Model.CurrencyIdSearch" placeholder="Currency ID" class="form-control" />
         </div>
 
-        <div class="col-3">
+        <div class="col">
             <label>Country Short Code</label>
             <select asp-for="SelectedCountryShortCodes" asp-items="Model.CountryShortCodeList" class="form-control" multiple id="countryShortCodes"></select>
             <input type="text" class="form-control mt-1" name="CountryShortCodeSearch" value="@Model.CountryShortCodeSearch" placeholder="Type Country Short Code" />
         </div>
-        <div class="col-3">
+        <div class="col">
                 <label>Country Alpha3 Code</label>
                 <select asp-for="SelectedAlpha3Codes" asp-items="Model.CountryAlpha3CodeList" class="form-control" multiple id="countryAlphacode"></select>
                 <input type="text" class="form-control mt-1" name="CountryAlpha3CodeSearch" value="@Model.CountryAlpha3CodeSearch" placeholder="Type Country Alpha3 Code" />
             </div>
             
-            
-            
-            
-            <div class="col-3">
+            <div class="col">
                 <label>Risk Score</label>
                 <select asp-for="SelectedRiskScores" asp-items="Model.RiskScoreList" class="form-control" multiple id="riskscore"></select>
                 <input type="number" name="RiskScoreSearch" value="@Model.RiskScoreSearch" placeholder="Risk Score" class="form-control" />
             </div>
 
-            <div class="col-3">
+            <div class="col">
                 <label>IBAN Exist</label>
             <select name="IbanExistsSearch" class="form-control">
                              <option value="">Select</option>
@@ -85,22 +83,24 @@
                              <option value="False">False</option>
                 </select>
           
-        </div>
-            <div class="col-3">
+            </div>
+            <div class="col">
                 <label>IBAN Length</label>
                 <select asp-for="SelectedIbanLengths" asp-items="Model.IbanLengthList" class="form-control " multiple id="ibanlength"></select>
                 <input type="number" name="IbanLengthSearch" value="@Model.IbanLengthSearch" placeholder="IBAN Length" class="form-control" />
             </div>
-            <div class="col-3">
+            <div class="col">
                 <label>Display Number</label>
             <select asp-for="SelectedDisplayNumbers" asp-items="Model.DisplayNumberList" class="form-control multi-select" multiple id="displaynumber"></select>
                 <input type="text" class="form-control mt-1" name="DisplayNumberSearch" value="@Model.DisplayNumberSearch" placeholder="Type Display Number" />
-        </div>
+            </div>
 
         </div>
 
         <div class="mt-3">
             <input type="submit" value="Search" class="btn btn-primary" />
+            @* <button asp-action="Index" class="btn btn-primary">Reset</button> *@
+
         </div>
     </form>
 
@@ -149,21 +149,30 @@
 </div>
 
 @section Scripts {
-     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script>
+    @*  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> *@
+    @* <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> *@
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js" type="text/javascript"></script>
+     <script>
         $(function () {
-            $('#countryNames, #currencyNames, #countryCodes, #currencyCodes, #riskscore, #countryShortCodes, #ShortCodes, #currencyId, #currencySymbols, #countryIds, #countryAlphacode, #ibanlength, #displaynumber').select2({
+            $('#countryNames, #currencyNames, #countryCodes, #currencyCodes, #riskscore, #countryShortCodes, #ShortCodes, #currencyId, #currencySymbols, #countryIds, #countryAlphacode, #ibanlength, #displaynumber').multiselect({
                 placeholder: "Select items",
-                width: '100%'
+                includeSelectAllOption: true,
+                buttonWidth: '100%'
             });
-        });
+        }); 
         
         
+           
             
     </script>
    
    
 
    
-}
+} 
+
+
