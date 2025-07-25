@@ -287,6 +287,7 @@ using CountryApp.Data;
 using CountryApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace CountryApp.Controllers
@@ -300,14 +301,19 @@ namespace CountryApp.Controllers
             _context = context;
         }
 
+        //public IActionResult Search(int? id)
+        //{
+        //    var countries = _context.Countries.FromSqlRaw($"GetsingleData {id}").AsEnumerable().FirstOrDefault();
+        //    return View(countries);
+        //}
+
         public IActionResult Index(CountryFilterViewModel model)
         {
-            var countries = _context.Countries.ToList();
 
+            var countries = _context.Countries.ToList();
             // Apply multi-select filters
             if (model.SelectedCountryId?.Any() == true)
                 countries = countries.Where(c => model.SelectedCountryId.Contains(c.CountryId)).ToList();
-
             if (model.SelectedCountryNames?.Any() == true)
                 countries = countries.Where(c => model.SelectedCountryNames.Contains(c.CountryName)).ToList();
 
@@ -339,7 +345,7 @@ namespace CountryApp.Controllers
                 countries = countries.Where(c => model.SelectedRiskScores.Contains(c.RiskScore?.ToString() ?? string.Empty)).ToList();
 
             if (model.SelectedIbanLengths?.Any() == true)
-                countries = countries.Where(c => model.SelectedIbanLengths.Contains(c.Ibanlength?.ToString())).ToList();
+                countries = countries.Where(c => model.SelectedIbanLengths.Contains((int)c.Ibanlength)).ToList();
 
             if (model.SelectedCountryShortCodes?.Any() == true)
                 countries = countries.Where(c => model.SelectedCountryShortCodes.Contains(c.CountryShortCode)).ToList();
@@ -378,8 +384,8 @@ namespace CountryApp.Controllers
             if (model.IbanExistsSearch.HasValue)
                 countries = countries.Where(c => c.Ibanexist == model.IbanExistsSearch).ToList();
 
-            if (!string.IsNullOrWhiteSpace(model.IbanLengthSearch))
-                countries = countries.Where(c => c.Ibanlength?.ToString() == model.IbanLengthSearch).ToList();
+            if (model.IbanLengthSearch > 0)
+                countries = countries.Where(c => c.Ibanlength == model.IbanLengthSearch).ToList();
 
             if (!string.IsNullOrWhiteSpace(model.CountryShortCodeSearch))
                 countries = countries.Where(c => c.CountryShortCode?.ToLower().Contains(model.CountryShortCodeSearch.ToLower()) == true).ToList();
@@ -390,8 +396,10 @@ namespace CountryApp.Controllers
             model.Countries = countries;
 
             PopulateDropdowns(model);
+            //model.Countries = countries; // Bind to ViewModel
 
             return View(model);
+
         }
 
         private void PopulateDropdowns(CountryFilterViewModel model)

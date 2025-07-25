@@ -1,0 +1,47 @@
+﻿@model Country
+@{
+    ViewData["title"] = "sksjk";
+}
+<div class="table-responsive mt-4 shadow-sm rounded-3 overflow-hidden">
+    <table class="table table-striped table-hover mb-0">
+        <thead class="table-dark">
+            <tr>
+                <th>Country ID</th>
+                <th>Country Code</th>
+                <th>Country Name</th>
+                <th>Short Code</th>
+                <th>Currency Code</th>
+                <th>Currency Name</th>
+                <th>Currency Symbol</th>
+                <th>Currency ID</th>
+                <th>Country Short Code</th>
+                <th>Country Alpha3 Code</th>
+                <th>Risk Score</th>
+                <th>IBAN Exists</th>
+                <th>IBAN Length</th>
+                <th>Display Number</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            @* @foreach (var Model in Model)
+            { *@
+                <tr>
+                    <td>@Model.CountryId</td>
+                    <td>@Model.CountryCode</td>
+                    <td>@Model.CountryName</td>
+                    <td>@Model.ShortCode</td>
+                    <td>@Model.CurrencyCode</td>
+                    <td>@Model.CurrencyName</td>
+                    <td>@Model.CurrencySymbol</td>
+                    <td>@Model.CurrencyId</td>
+                    <td>@Model.CountryShortCode</td>
+                    <td>@Model.CountryAlpha3Code</td>
+                    <td>@Model.RiskScore</td>
+                    <td>@Model.Ibanexist</td>
+                    <td>@(Model.Ibanlength > 0 ? Model.Ibanlength : 0)</td>
+                    <td>@Model.DisplayNumber</td>
+                </tr>
+            @* } *@
+        </tbody>
+    </table>
+</div>

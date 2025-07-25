@@ -5,40 +5,43 @@ namespace CountryApp.Models
 {
     public class CountryFilterViewModel
     {
-        public List<Country> Countries { get; set; }
+        //public int? CountryIdSearch { get; set; }
+        //public List<Country> Countries { get; set; }
+        public string FromType { get; set; } = "Input";
+        public IEnumerable<Country> Countries { get; set; }
 
         public List<string> SelectedCountryNames { get; set; }
         public List<string> SelectedCurrencyCodes { get; set; }
         public List<string> SelectedCurrencySymbols { get; set; }
-        public List<int>    SelectedCountryId { get; set; }
+        public List<int>? SelectedCountryId { get; set; }
         public List<string>? SelectedCurrencyNames { get; set; }
         public List<string>? SelectedCountryCodes { get; set; }
         public List<string>? SelectedAlpha3Codes { get; set; }
         public List<string>? SelectedShortCodes { get; set; }
         public List<string>? SelectedDisplayNumbers { get; set; }
         public List<string>? SelectedRiskScores { get; set; }
-        public List<bool>? SelectedIbanExists { get; set; } 
-        public List<string> SelectedIbanLengths { get; set; } 
+        public List<bool>? SelectedIbanExists { get; set; }
+        public List<int> SelectedIbanLengths { get; set; }
         public List<string>? SelectedCountryShortCodes { get; set; }
         public List<int> SelectedCurrencyId { get; set; }
 
-        public int  CountryIdSearch { get; set; }
+        public int? CountryIdSearch { get; set; }
+        public int? CurrencyIdSearch { get; set; }
         public string CountryNameSearch { get; set; }
-        public string CurrencyCodeSearch { get; set; }
-        public string CurrencySymbolSearch { get; set; }
-        public string CountryCodeSearch { get; set; }
-        public string CountryAlpha3CodeSearch { get; set; }
-        public string CurrencyNameSearch { get; set; }
-        public string ShortCodeSearch { get; set; }
-        public string DisplayNumberSearch { get; set; }
-        [Range(0, 100, ErrorMessage = "Risk score must be between 0 and 100.")]
+        public string? CurrencyCodeSearch { get; set; }
+        public string? CurrencySymbolSearch { get; set; }
+        public string? CountryCodeSearch { get; set; }
+        public string? CountryAlpha3CodeSearch { get; set; }
+        public string? CurrencyNameSearch { get; set; }
+        public string? ShortCodeSearch { get; set; }
+        public string? DisplayNumberSearch { get; set; }
         public decimal? RiskScoreSearch { get; set; }
         public bool? IbanExistsSearch { get; set; }
-        public string IbanLengthSearch { get; set; }
-        public string CountryShortCodeSearch { get; set; }
-        public int CurrencyIdSearch { get; set; }
+        public int? IbanLengthSearch { get; set; }
+        public string? CountryShortCodeSearch { get; set; }
+        //public int CurrencyIdSearch { get; set; }
 
-        public List<SelectListItem> CountryNameList { get; set; } 
+        public List<SelectListItem> CountryNameList { get; set; }
         public List<SelectListItem> CurrencyCodeList { get; set; }
         public List<SelectListItem> CurrencySymbolList { get; set; }
         public List<SelectListItem> CountryIdList { get; set; }
